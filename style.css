@@ -4,6 +4,7 @@ body {
     background: linear-gradient(120deg, #f3f4f8 0%, #e1eaff 100%);
     margin: 0;
     color: #222;
+    transition: background 0.3s, color 0.3s;
 }
 
 .navbar {
@@ -15,6 +16,9 @@ body {
     padding: 0 32px;
     height: 64px;
     box-shadow: 0 2px 8px rgba(26, 35, 126, 0.11);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
@@ -35,14 +39,22 @@ body {
     color: #fff;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.2s;
+    transition: background 0.3s, transform 0.2s;
     padding: 8px 12px;
     border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-link i {
+    font-size: 1rem;
 }
 
 .nav-link:hover,
 .nav-link.active {
     background: #3949ab;
+    transform: scale(1.05);
 }
 
 main {
@@ -53,11 +65,12 @@ main {
     box-shadow: 0 4px 32px rgba(60, 72, 128, 0.09);
     padding: 40px 36px 24px 36px;
     min-height: 480px;
+    transition: background 0.3s;
 }
 
 .page {
     display: none;
-    animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .page.active {
@@ -72,6 +85,7 @@ main {
 h1 {
     color: #1a237e;
     margin-top: 0;
+    font-size: 2rem;
 }
 
 .projects-list {
@@ -87,11 +101,20 @@ h1 {
     padding: 20px;
     box-shadow: 0 2px 8px rgba(26, 35, 126, 0.04);
     margin-bottom: 12px;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
 }
 
 .project-card h2 {
     color: #3949ab;
     margin-top: 0;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .contact-form {
@@ -101,6 +124,14 @@ h1 {
     max-width: 380px;
 }
 
+.contact-form label {
+    font-weight: bold;
+    color: #1a237e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .contact-form input,
 .contact-form textarea {
     padding: 8px;
@@ -108,6 +139,13 @@ h1 {
     border: 1px solid #bbb;
     font-size: 1rem;
     resize: none;
+    transition: border 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #3949ab;
+    outline: none;
 }
 
 .contact-form button {
@@ -118,11 +156,15 @@ h1 {
     border-radius: 8px;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .contact-form button:hover {
     background: #3949ab;
+    transform: scale(1.03);
 }
 
 .success-msg {
@@ -141,6 +183,57 @@ footer {
     border-top-right-radius: 12px;
     margin-top: 32px;
     font-size: 1rem;
+}
+
+/* 🌙 وضع ليلي */
+body.dark-mode {
+    background: linear-gradient(120deg, #1c1c1c 0%, #2c2c2c 100%);
+    color: #eee;
+}
+
+body.dark-mode main {
+    background: #2a2a2a;
+}
+
+body.dark-mode .navbar,
+body.dark-mode footer {
+    background: #000;
+}
+
+body.dark-mode .nav-link {
+    color: #eee;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    background: #333;
+}
+
+body.dark-mode .project-card {
+    background: #3a3a3a;
+}
+
+body.dark-mode .project-card h2 {
+    color: #90caf9;
+}
+
+body.dark-mode .contact-form label {
+    color: #90caf9;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background: #444;
+    color: #fff;
+    border-color: #666;
+}
+
+body.dark-mode .contact-form button {
+    background: #333;
+}
+
+body.dark-mode .contact-form button:hover {
+    background: #555;
 }
 
 @media (max-width: 600px) {
