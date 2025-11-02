@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مدونة م. صالح التقنية</title>
     <link rel="stylesheet" href="style.css">
+    <!-- مكتبة الأيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">م. صالح سالم باحميد</div>
         <ul class="nav-links">
-            <li><a href="#" class="nav-link active" data-page="home">الرئيسية</a></li>
-            <li><a href="#" class="nav-link" data-page="about">نبذة</a></li>
-            <li><a href="#" class="nav-link" data-page="projects">المشاريع</a></li>
-            <li><a href="#" class="nav-link" data-page="contact">تواصل</a></li>
+            <li><a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="#" class="nav-link" data-page="about"><i class="fas fa-user"></i> نبذة</a></li>
+            <li><a href="#" class="nav-link" data-page="projects"><i class="fas fa-code"></i> المشاريع</a></li>
+            <li><a href="#" class="nav-link" data-page="contact"><i class="fas fa-envelope"></i> تواصل</a></li>
         </ul>
     </nav>
     <main>
@@ -27,24 +29,24 @@
                 حاصل على بكالوريوس في تقنية المعلومات، أعمل في تطوير الأنظمة البرمجية وأملك خبرة واسعة في هندسة البرمجيات، تطوير المواقع والتطبيقات، وأحب مشاركة المعرفة التقنية.
             </p>
             <ul>
-                <li>لغات برمجة: Python, JavaScript, C#</li>
-                <li>أطر العمل: React, Node.js, .NET</li>
-                <li>اهتمامات: الأمن السيبراني، الذكاء الاصطناعي، البنية السحابية</li>
+                <li><i class="fas fa-code"></i> لغات برمجة: Python, JavaScript, C#</li>
+                <li><i class="fas fa-layer-group"></i> أطر العمل: React, Node.js, .NET</li>
+                <li><i class="fas fa-brain"></i> اهتمامات: الأمن السيبراني، الذكاء الاصطناعي، البنية السحابية</li>
             </ul>
         </section>
         <section id="projects" class="page">
             <h1>مشاريعي</h1>
             <div class="projects-list">
                 <div class="project-card">
-                    <h2>نظام إدارة المهام الذكي</h2>
+                    <h2><i class="fas fa-tasks"></i> نظام إدارة المهام الذكي</h2>
                     <p>تطبيق ويب لإدارة وتنظيم المهام باستخدام تقنيات الذكاء الاصطناعي لتصنيف الأولويات.</p>
                 </div>
                 <div class="project-card">
-                    <h2>مدونة تقنية تفاعلية</h2>
+                    <h2><i class="fas fa-blog"></i> مدونة تقنية تفاعلية</h2>
                     <p>منصة تدوين مبنية على React وNode.js تدعم التعليقات التفاعلية والإشعارات الفورية.</p>
                 </div>
                 <div class="project-card">
-                    <h2>أداة مراقبة الشبكة</h2>
+                    <h2><i class="fas fa-network-wired"></i> أداة مراقبة الشبكة</h2>
                     <p>برنامج لرصد أداء الشبكة وتحليل حركة البيانات مع لوحة تحكم بصرية متقدمة.</p>
                 </div>
             </div>
@@ -52,19 +54,19 @@
         <section id="contact" class="page">
             <h1>تواصل معي</h1>
             <form class="contact-form" onsubmit="sendMessage(event)">
-                <label>الاسم</label>
+                <label><i class="fas fa-user"></i> الاسم</label>
                 <input type="text" required>
-                <label>البريد الإلكتروني</label>
+                <label><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
                 <input type="email" required>
-                <label>رسالتك</label>
+                <label><i class="fas fa-comment-dots"></i> رسالتك</label>
                 <textarea required></textarea>
-                <button type="submit">إرسال</button>
+                <button type="submit"><i class="fas fa-paper-plane"></i> إرسال</button>
             </form>
             <div id="contact-success" class="success-msg"></div>
         </section>
     </main>
     <footer>
-        <p>© 2025 م. صالح - جميع الحقوق محفوظة</p>
+        <p>© 2025 م. صالح باحميد - جميع الحقوق محفوظة</p>
     </footer>
     <script src="script.js"></script>
 </body>
