@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة م. أحمد التقنية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">م. أحمد</div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-link active" data-page="home">الرئيسية</a></li>
+            <li><a href="#" class="nav-link" data-page="about">نبذة</a></li>
+            <li><a href="#" class="nav-link" data-page="projects">المشاريع</a></li>
+            <li><a href="#" class="nav-link" data-page="contact">تواصل</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home" class="page active">
+            <h1>مرحباً بكم في مدونتي التقنية</h1>
+            <p>أنا أحمد، مهندس تقنية معلومات أشارككم خبراتي ومشاريعي في مجال التقنية والبرمجيات.</p>
+        </section>
+        <section id="about" class="page">
+            <h1>نبذة عني</h1>
+            <p>
+                حاصل على بكالوريوس في تقنية المعلومات، أعمل في تطوير الأنظمة البرمجية وأملك خبرة واسعة في هندسة البرمجيات، تطوير المواقع والتطبيقات، وأحب مشاركة المعرفة التقنية.
+            </p>
+            <ul>
+                <li>لغات برمجة: Python, JavaScript, C#</li>
+                <li>أطر العمل: React, Node.js, .NET</li>
+                <li>اهتمامات: الأمن السيبراني، الذكاء الاصطناعي، البنية السحابية</li>
+            </ul>
+        </section>
+        <section id="projects" class="page">
+            <h1>مشاريعي</h1>
+            <div class="projects-list">
+                <div class="project-card">
+                    <h2>نظام إدارة المهام الذكي</h2>
+                    <p>تطبيق ويب لإدارة وتنظيم المهام باستخدام تقنيات الذكاء الاصطناعي لتصنيف الأولويات.</p>
+                </div>
+                <div class="project-card">
+                    <h2>مدونة تقنية تفاعلية</h2>
+                    <p>منصة تدوين مبنية على React وNode.js تدعم التعليقات التفاعلية والإشعارات الفورية.</p>
+                </div>
+                <div class="project-card">
+                    <h2>أداة مراقبة الشبكة</h2>
+                    <p>برنامج لرصد أداء الشبكة وتحليل حركة البيانات مع لوحة تحكم بصرية متقدمة.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="page">
+            <h1>تواصل معي</h1>
+            <form class="contact-form" onsubmit="sendMessage(event)">
+                <label>الاسم</label>
+                <input type="text" required>
+                <label>البريد الإلكتروني</label>
+                <input type="email" required>
+                <label>رسالتك</label>
+                <textarea required></textarea>
+                <button type="submit">إرسال</button>
+            </form>
+            <div id="contact-success" class="success-msg"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 م. أحمد - جميع الحقوق محفوظة</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
