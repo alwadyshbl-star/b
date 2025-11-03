@@ -1,4 +1,3 @@
-/* تصميم حصري واحترافي للمدونة */
 body {
     font-family: 'Cairo', Tahoma, Arial, sans-serif;
     background: linear-gradient(120deg, #f3f4f8 0%, #e1eaff 100%);
@@ -7,20 +6,58 @@ body {
     transition: background 0.3s, color 0.3s;
     line-height: 1.6;
     font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#particleCanvas {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+
+.navbar,
+main,
+footer {
+    position: relative;
+    z-index: 1;
 }
 
 .navbar {
-    background: #1a237e;
+    background: rgba(26, 35, 126, 0.95);
+    backdrop-filter: blur(10px);
     color: #fff;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 12px 5vw;
-    box-shadow: 0 2px 8px rgba(26, 35, 126, 0.11);
+    box-shadow: 0 2px 20px rgba(26, 35, 126, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .logo {
@@ -64,12 +101,30 @@ body {
 main {
     max-width: 1000px;
     margin: 36px auto;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
     border-radius: 18px;
-    box-shadow: 0 4px 32px rgba(60, 72, 128, 0.09);
+    box-shadow: 0 8px 40px rgba(60, 72, 128, 0.15);
     padding: 40px 5vw 24px 5vw;
     min-height: 480px;
-    transition: background 0.3s;
+    transition: all 0.4s ease;
+    animation: fadeInScale 0.6s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+main:hover {
+    box-shadow: 0 12px 50px rgba(60, 72, 128, 0.2);
+    transform: translateY(-2px);
 }
 
 .page {
@@ -101,16 +156,35 @@ h1 {
 
 .project-card {
     flex: 1 1 clamp(240px, 45%, 300px);
-    background: #f3f6fd;
+    background: rgba(243, 246, 253, 0.8);
+    backdrop-filter: blur(5px);
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(26, 35, 126, 0.04);
+    box-shadow: 0 4px 16px rgba(26, 35, 126, 0.08);
     margin-bottom: 12px;
-    transition: transform 0.3s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.project-card:hover::before {
+    left: 100%;
 }
 
 .project-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(26, 35, 126, 0.15);
 }
 
 .project-card h2 {
@@ -248,17 +322,36 @@ h1 {
 }
 
 .team-member {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(26, 35, 126, 0.08);
+    box-shadow: 0 4px 20px rgba(26, 35, 126, 0.1);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(57, 73, 171, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.team-member:hover::after {
+    opacity: 1;
 }
 
 .team-member:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 4px 20px rgba(26, 35, 126, 0.12);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 8px 35px rgba(26, 35, 126, 0.18);
 }
 
 .member-avatar {
@@ -272,6 +365,21 @@ h1 {
     justify-content: center;
     color: #fff;
     font-size: 2rem;
+    transition: all 0.4s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(26, 35, 126, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(26, 35, 126, 0);
+    }
+}
+
+.team-member:hover .member-avatar {
+    transform: rotate(360deg) scale(1.1);
 }
 
 .team-member h3 {
@@ -305,19 +413,25 @@ footer {
     font-size: 1rem;
 }
 
-/* 🌙 وضع ليلي */
 body.dark-mode {
-    background: linear-gradient(120deg, #1c1c1c 0%, #2c2c2c 100%);
+    background: linear-gradient(120deg, #0a0a0a 0%, #1a1a2e 100%);
     color: #eee;
 }
 
+body.dark-mode .animated-background {
+    background: radial-gradient(circle at 20% 50%, rgba(26, 35, 126, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(57, 73, 171, 0.15) 0%, transparent 50%);
+}
+
 body.dark-mode main {
-    background: #2a2a2a;
+    background: rgba(42, 42, 42, 0.85);
+    backdrop-filter: blur(15px);
 }
 
 body.dark-mode .navbar,
 body.dark-mode footer {
-    background: #000;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
 }
 
 body.dark-mode .nav-link {
@@ -330,7 +444,12 @@ body.dark-mode .nav-link.active {
 }
 
 body.dark-mode .project-card {
-    background: #3a3a3a;
+    background: rgba(58, 58, 58, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode .project-card:hover {
+    background: rgba(68, 68, 68, 0.8);
 }
 
 body.dark-mode .project-card h2 {
@@ -356,9 +475,9 @@ body.dark-mode .contact-form button:hover {
     background: #555;
 }
 
-/* تنسيقات الوضع الليلي للأقسام الجديدة */
 body.dark-mode .about-site {
-    background: #3a3a3a;
+    background: rgba(58, 58, 58, 0.7);
+    backdrop-filter: blur(10px);
 }
 
 body.dark-mode .about-site h2 {
@@ -370,7 +489,8 @@ body.dark-mode .about-site ul.site-goals li i {
 }
 
 body.dark-mode .team-section {
-    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+    background: linear-gradient(135deg, rgba(42, 42, 42, 0.7) 0%, rgba(58, 58, 58, 0.7) 100%);
+    backdrop-filter: blur(10px);
 }
 
 body.dark-mode .team-section h2 {
@@ -378,7 +498,12 @@ body.dark-mode .team-section h2 {
 }
 
 body.dark-mode .team-member {
-    background: #2a2a2a;
+    background: rgba(42, 42, 42, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode .team-member::after {
+    background: radial-gradient(circle, rgba(144, 202, 249, 0.1) 0%, transparent 70%);
 }
 
 body.dark-mode .team-member h3 {
